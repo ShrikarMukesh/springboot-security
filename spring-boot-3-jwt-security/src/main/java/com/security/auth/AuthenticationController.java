@@ -27,9 +27,7 @@ public class AuthenticationController {
    * @param request The user registration details encapsulated in a RegisterRequest object.
    * @return ResponseEntity containing an AuthenticationResponse object
    *         indicating successful registration and possibly containing token.
-   *
-   *
-   * @endpoint POST /register
+   * {@code @endpoint} POST /register
    */
   @PostMapping("/register")
   public ResponseEntity<AuthenticationResponse> register(

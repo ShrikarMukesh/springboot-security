@@ -2,6 +2,7 @@ package com.security;
 
 import com.security.auth.AuthenticationService;
 import com.security.auth.RegisterRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import static com.security.user.Role.ADMIN;
 import static com.security.user.Role.MANAGER;
 
 @SpringBootApplication
+@Slf4j
 public class SecurityApplication {
 
 	public static void main(String[] args) {
@@ -30,7 +32,7 @@ public class SecurityApplication {
 					.password("password")
 					.role(ADMIN)
 					.build();
-			System.out.println("Admin token: " + service.register(admin).getAccessToken());
+			log.info("Admin token: " + service.register(admin).getAccessToken());
 
 			var manager = RegisterRequest.builder()
 					.firstname("Admin")
@@ -39,7 +41,7 @@ public class SecurityApplication {
 					.password("password")
 					.role(MANAGER)
 					.build();
-			System.out.println("Manager token: " + service.register(manager).getAccessToken());
+			log.info("Manager token: " + service.register(manager).getAccessToken());
 
 			var admin1 = RegisterRequest.builder()
 					.firstname("shrikar")
@@ -48,7 +50,7 @@ public class SecurityApplication {
 					.password("password")
 					.role(ADMIN)
 					.build();
-			System.out.println("Admin token: " + service.register(admin1).getAccessToken());
+			log.info("Admin token: " + service.register(admin1).getAccessToken());
 
 			var manager2 = RegisterRequest.builder()
 					.firstname("Dinesh")
@@ -57,7 +59,7 @@ public class SecurityApplication {
 					.password("password")
 					.role(MANAGER)
 					.build();
-			System.out.println("Manager token: " + service.register(manager2).getAccessToken());
+			log.info("Manager token: " + service.register(manager2).getAccessToken());
 		};
 	}
 }
