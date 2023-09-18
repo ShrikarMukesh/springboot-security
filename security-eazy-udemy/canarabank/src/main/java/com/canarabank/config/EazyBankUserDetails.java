@@ -18,6 +18,7 @@ import java.util.List;
 @Service
 public class EazyBankUserDetails implements UserDetailsService {
 
+
     @Autowired
     private CustomerRepository customerRepository;
 
