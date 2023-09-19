@@ -22,7 +22,7 @@ public class CanaraBankUsernamePwdAuthenticationProvider implements Authenticati
     private CustomerRepository customerRepository;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -41,8 +41,10 @@ public class CanaraBankUsernamePwdAuthenticationProvider implements Authenticati
             throw new BadCredentialsException("No user registered with this details!");
         }
     }
+
     @Override
     public boolean supports(Class<?> authentication) {
         return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
     }
+
 }
